@@ -1,39 +1,22 @@
-## todo
-* Deps: I assume FxA versions must sync with Firefox to reduce our APK size.
-  * Can we rm some deps? e.g. ActionBar is added in API 11 but we use support
-  * Switch to official Apache httpclientandroidlib ?: https://hc.apache.org/httpcomponents-client-4.3.x/android-port.html
-  * Apache commons from gradle instead of import files?
-* l10n
-* Delete Android account code
-* Figure out RobocopTarget
-* Where is NativeCrypto code? Do I need NDK?
-* telemetry
+This is a demo password manager, once you login with your Firefox Account, it reads in your logins+passwords, and behaves like a basic standalone password manager,
 
-### Support
-* get tests working
-* linters
-  * android lint
-  * checkstyle
-* CI
-* ProGuard
-* Release build type
+Ituses the Firefox Sync Library from here:
 
-### Adminnstrivia
-* attach example/test project
-* License for non-MPL files.
-* Mention how to build with local (so dev on mozilla-central)
+https://github.com/mozilla-mobile/FirefoxData-android
 
-### Later
-* Remerge to fennec (grisha says leave out Android account stuff)
-* drop ch.boye.httpclientandroidlib. nalexander says:
+The obvious flaw here is that instead of building cleanly on top of that library, I just mashed code on top the AccountsExample code that was already present.
 
-mcomella: it's big.  You don't want to ship it.  Using a different dep would be
-easy.  You don't have to, and you can "trust" the HTTP/TLS configuration to
-work, but you'll end up bring a _lot_ of Sync with you...
-14:32 Well, maybe not that much.  But enough that it won't be a clean excision.
-14:32 And I gave you the excision point; you should use it :)
+There are a few reasons for this not being a 'clean' repo.
+First, is that I began experimenting with a preliminary version of the FirefoxData library, modifying the sample code. 
+The main repo changed significantly from the version I was experimenting with.
+Second, the intent was that if it was actually being developed further, it would be refactored into a project that had a jcenter dep 
+with the library.
 
-mcomella: grisha: for sure!  mcomella, it shouldn't be too hard to do what you
-want, pulling minimal deps from the FxALoginStateMachine.
-14:27 mcomella: you should, of course, implement your own FxAClient20 or
-whatever that doesn't use Apache's httpclientlib.
+There is no plan to use this beyond an interesting proof-of-concept.
+
+This project has the following purposes:
+- examine standalone Firefox Accounts login
+- pull in logins table from Firefox Sync to a standalone app
+- experiement with Android KeyStore for device secure local storage for storing a symmetric encryption key
+used for encrypting/decrypting local data
+- as a minor detail, experiment with app-specific passcodes, and basic copy/paste functionality for password management
