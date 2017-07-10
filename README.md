@@ -4,6 +4,10 @@ It uses the Firefox Android Sync Library from here:
 
 https://github.com/mozilla-mobile/FirefoxData-android
 
+All of the code I added is in this directory:
+
+[./example/src/main/java/org/mozilla/accountsexample](./example/src/main/java/org/mozilla/accountsexample)
+
 The obvious flaw here is that instead of building cleanly on top of that library, I just mashed code on top the AccountsExample code that was already present.
 
 There are a few reasons for this not being a 'clean' repo.
