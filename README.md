@@ -1,6 +1,6 @@
 This is a demo password manager, once you login with your Firefox Account, it reads in your logins+passwords, and behaves like a basic standalone password manager,
 
-Ituses the Firefox Sync Library from here:
+It uses the Firefox Android Sync Library from here:
 
 https://github.com/mozilla-mobile/FirefoxData-android
 
