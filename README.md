@@ -20,3 +20,11 @@ This project has the following purposes:
 - experiement with Android KeyStore for device secure local storage for storing a symmetric encryption key
 used for encrypting/decrypting local data
 - as a minor detail, experiment with app-specific passcodes, and basic copy/paste functionality for password management
+
+Building:
+
+Follow the build instructions from 
+https://github.com/mozilla-mobile/FirefoxData-android
+
+Essentially, open the project in Android Studio, and run the default gradle task which is to build the AccountsExample project.
+I used an API level 25 simulator for most of this work, so that is the only guaranteed version.
